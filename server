@@ -1,0 +1,23 @@
+const express = require("express"), app = express();
+const Gpio = require("orange-pi-gpio");
+
+let valveTest=new Gpio({ pin: 3, mode: "out" });
+let valveTest2=new Gpio({ pin: 8, mode: "out" });
+
+
+valveTest.read()
+.then((state)=>{
+    console.log(state);
+});
+
+
+valveTest2.read()
+.then((state)=>{
+    console.log(state);
+});
+
+app.listen("3060", () => {
+  console.log("TEMP API RUNNING");
+});
+
+module.exports = app;
